@@ -1,12 +1,38 @@
-from flask import Flask  # importando biblioteca
+from flask import Flask
+import json
 
 app = Flask(__name__)
 
+tasks = [
+    {
+        'id': 1,
+        'name': "task1",
+        "description": "This is task 1"
+    },
+    {
+        "id": 2,
+        "name": "task2",
+        "description": "This is task 2"
+    },
+    {
+        "id": 3,
+        "name": "task3",
+        "description": "This is task 3"
+    }
+]
 
-@app.route('/api1')  # request
+tasksJSON = json.dumps(tasks)
+
+
+@app.route('/')
 def home():
-    return 'texto de retorno'
+    return "App Works!!!"
 
 
-if __name__ == '__main__':  # iniciar servidor
-    app.run(debug=True)
+@app.route('/api/tasks')
+def tasks():
+    return tasksJSON
+
+
+if __name__ == '__main__':
+    app.run()
