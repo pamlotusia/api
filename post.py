@@ -16,3 +16,6 @@ def cadastrar():
 def consultar():
     # return jsonify(list(range(5)))
     return 'primeira chamada de api!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
