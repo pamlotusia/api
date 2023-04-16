@@ -9,7 +9,7 @@ def cadastrar():
     # camada de banco de dados
     jsonToReturn = {
         'nome': input_json['nome'], 'Cadastro': 'Para efetuar o cadastro passe o seu código'}
-    return jsonify(jsonToReturn), 401
+    return jsonify(jsonToReturn)
 
 
 @app.route('/v1/aula/consultar', methods=["GET"])
