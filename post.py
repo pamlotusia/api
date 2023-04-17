@@ -16,3 +16,22 @@ def cadastrar():
 def consultar():
     # return jsonify(list(range(5)))
     return 'primeira chamada de api!'
+
+
+# http://localhost:5000/deletar/5
+@app.route('/v1/aula/deletar/<int:number>/', methods=["DELETE"])
+def deletar(number):
+    return "Excluido " + str(number)
+    # return "Excluido " + str(number), 401
+
+
+@app.route('/v1/aula/atualizar', methods=["PUT"])
+def atualizar():
+    input_json = request.get_json(force=True)
+    # banco de dados
+    jsonToReturn = {'text': input_json['text'], 'text2': input_json['text2']}
+    return jsonify(jsonToReturn)
+
+
+if __name__ == '__main__':
+    app.run()
