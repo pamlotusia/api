@@ -8,6 +8,7 @@ def consultar():
     return 'primeira chamada de api!'
 
 
+
 @app.route('/v1/aula', methods=["POST"])
 def cadastrar():
     # input_json = request.get_json(force=True)
@@ -18,4 +19,4 @@ def cadastrar():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5001, host="localhost")
