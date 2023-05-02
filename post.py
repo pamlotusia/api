@@ -9,13 +9,13 @@ def cadastrar():
     # camada de banco de dados
     jsonToReturn = {
         'nome': input_json['nome'], 'Cadastro': 'Para efetuar o cadastro passe o seu código'}
-    return jsonify(jsonToReturn)
+    return jsonify(jsonToReturn), 401
 
 
 @app.route('/v1/aula/consultar', methods=["GET"])
 def consultar():
-    # return jsonify(list(range(5)))
-    return 'primeira chamada de api!'
+    return jsonify(list(range(5)))
+    # return 'primeira chamada de api!'
 
 
 # http://localhost:5000/deletar/5
@@ -34,4 +34,4 @@ def atualizar():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
